@@ -1,0 +1,56 @@
+{
+  "name": "Zefron API",
+  "description": "Deno music API with Telegram delivery and MongoDB-backed audio caching.",
+  "keywords": [
+    "deno",
+    "music",
+    "api",
+    "telegram"
+  ],
+  "stack": "heroku-24",
+  "success_url": "/health",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt"
+    },
+    {
+      "url": "https://github.com/chibat/heroku-buildpack-deno"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": {
+      "description": "MongoDB connection string for the persistent audio cache and per-user API keys.",
+      "required": true
+    },
+    "MONGODB_DB": {
+      "description": "MongoDB database name.",
+      "value": "zefron",
+      "required": false
+    },
+    "TELEGRAM_BOT_TOKEN": {
+      "description": "Telegram bot token used to upload cached audio.",
+      "required": true
+    },
+    "TELEGRAM_OUTPUT_BOT_TOKEN": {
+      "description": "Telegram output bot token used to issue per-user API keys and deliver songs.",
+      "required": true
+    },
+    "TELEGRAM_CACHE_CHANNEL_ID": {
+      "description": "Telegram channel ID where cached audio is stored.",
+      "required": true
+    },
+    "TELEGRAM_ADMIN_CHAT_ID": {
+      "description": "Optional Telegram admin chat or user ID.",
+      "required": false
+    },
+    "YUKI_API_KEY": {
+      "description": "Optional API key for the Yuki audio source fallback.",
+      "required": false
+    },
+    "YUKI_STREAM_BASE_URL": {
+      "description": "Optional Yuki stream endpoint base URL.",
+      "value": "https://music.yukiapi.site/stream",
+      "required": false
+    }
+  }
+}

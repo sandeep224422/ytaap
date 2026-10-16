@@ -1,1 +1,0 @@
-- [Heroku FFmpeg shared libraries](heroku-ffmpeg-libraries.md) — Deno restricts `LD_*` overrides under fine-grained run permissions; use the dynamic loader's `--library-path`.

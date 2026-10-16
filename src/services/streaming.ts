@@ -1440,6 +1440,7 @@ export async function transcodeToSmallMp3(
             Deno.env.get("LD_LIBRARY_PATH"),
             `${aptUsr}/lib/x86_64-linux-gnu`,
             `${aptUsr}/lib/x86_64-linux-gnu/blas`,
+            `${aptUsr}/lib/x86_64-linux-gnu/lapack`,
             `${aptUsr}/lib/x86_64-linux-gnu/pulseaudio`,
             `${aptUsr}/lib`,
           ].filter(Boolean).join(":")
